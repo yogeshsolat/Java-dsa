@@ -1,4 +1,4 @@
-﻿public class Subsequence {
+﻿public class PrintSubsequence {
 
     public static void main(String[] args) {
         printSS("abc", "");
