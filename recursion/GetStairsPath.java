@@ -8,36 +8,61 @@ public class GetStairsPath {
         System.out.println(ans);
     }
 
-    public static List<String> getSP(int n){
+    // 1st version
 
-        if(n == 0){
+    // public static List<String> getSP(int n){
+
+    // if(n == 0){
+    // List<String> elist = new ArrayList<>();
+    // elist.add("");
+    // return elist;
+    // }else if(n < 0){
+    // return new ArrayList<>();
+    // }
+
+    // List<String> path1 = getSP(n-1);
+    // List<String> path2 = getSP(n-2);
+    // List<String> path3 = getSP(n-3);
+
+    // List<String> mlist = new ArrayList<>();
+
+    // for(String path : path1){
+    // mlist.add("1" + path);
+    // }
+
+    // for(String path : path2){
+    // mlist.add("2" + path);
+    // }
+
+    // for(String path : path3){
+    // mlist.add("3" + path);
+    // }
+
+    // return mlist;
+
+    // }
+
+    // better version
+    public static List<String> getSP(int n) {
+
+        if (n == 0) {
             List<String> elist = new ArrayList<>();
             elist.add("");
             return elist;
-        }else if(n < 0){
-            return new ArrayList<>(); 
+        } else if (n < 0) {
+            return new ArrayList<>();
         }
 
-        List<String> path1 = getSP(n-1);
-        List<String> path2 = getSP(n-2);
-        List<String> path3 = getSP(n-3);
+        List<String> paths = new ArrayList<>();
 
-        List<String> mlist = new ArrayList<>();
-
-        for(String path : path1){
-            mlist.add("1" + path);
+        for(int i = 1; i <= 3; i++){
+          List<String> subPaths = getSP(n - i);
+            
+          for(String path : subPaths){
+            paths.add(i + path);
+          }
         }
 
-        for(String path : path2){
-            mlist.add("2" + path);
-        }
-
-        for(String path : path3){
-            mlist.add("3" + path);
-        }
-
-
-        return mlist;
-        
+        return paths;
     }
 }
