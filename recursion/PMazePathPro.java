@@ -27,5 +27,24 @@
             printMazePaths(sr + i, sc + i, dr, dc, ans+"d"+i);
         }
     }
+
+    // another way but here the highest jump will be of 3 we cant beyond that much even if we have larger maze,
+    // the above is suitable if you want jump to increase wrto maze size
+    public static void pmp(int sr, int sc, int dr, int dc, String path){
+
+      if(sr == dr && sc == dc){
+        System.out.println(path);
+        return;
+      } else if(sr > dr || sc > dc){
+        return;
+      }
+
+      for(int i = 1; i <= 3;  i++){
+        pmp(sr + i, sc, dr, dc, path + "v"+i);
+        pmp(sr, sc + i, dr, dc, path + "h"+i);
+        pmp(sr + i, sc + i, dr, dc, path + "d"+i);
+      }
+      
+    }
 }
 
