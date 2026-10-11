@@ -16,7 +16,7 @@
         int num1 = Character.getNumericValue(digits.charAt(0));
 
         // A leading zero cannot form a one-digit letter encoding.
-        if( num1 != 0 && num1 < 9 && digits.length() >= 1){
+        if( num1 != 0 && num1 <= 9 && digits.length() >= 1){
             printEncodings(digits.substring(1), ans+ arr[num1 - 1]);
         }
 
