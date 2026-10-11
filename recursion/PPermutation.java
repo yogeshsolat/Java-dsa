@@ -42,5 +42,23 @@
             print_permutations(leftSs + rightSs, ans+ch);
         }
     }
+
+    // another way of writing this code
+    public static void printPermutations(String que, String ans){
+
+      if(que.length() == 0){
+        System.out.println(ans);
+        return;
+      }
+
+      for(int i = 0; i < que.length(); i++){
+
+        String s  = que.substring(i,i+1);
+        String roq = que.replace(s , "");
+
+        printPermutations(roq , ans + s);
+      }
+
+    }
 }
 
